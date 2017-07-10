@@ -3,8 +3,61 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Week-4-Game</title>
+	<!-- linking reset CSS file -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+	<!-- linking CSS file -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 <body>
-	
+<h1>Lord Of The Rings RPG!</h1>
+<div class="row" id="characterSet">
+	<div class="character" id="aragorn" value="#aragorn">
+		<h4>Aragorn</h4>
+		<img class="character-image" src="assets/images/aragorn.jpg" alt="aragorn">
+		<span class="center" id="aragornHp">120</span>
+	</div>
+	<div class="character" id="legolas" value="#legolas">
+		<h4>Legolas</h4>
+		<img class="character-image" src="assets/images/legolas.jpg" alt="legolas">
+		<span class="center" id="legolasHp">100</span>
+	</div>
+	<div class="character" id="witchKing" value="#witchKing">
+		<h4>Witch King</h4>
+		<img class="character-image" src="assets/images/witch_king.jpg" alt="witch king">
+		<span class="center" id="witchKingHp">200</span>
+	</div>
+	<div class="character" id="smeagol" value="#smeagol">
+		<h4>Smeagol</h4>
+		<img class="character-image" src="assets/images/smeagol.jpg" alt="smeagol">
+		<span class="center" id="smeagolHp">150</span>
+	</div>
+</div>
+<div class="row">
+	<h2>Your Character</h2>
+	<span id="character-selected"></span>
+
+	<span class="clear"><h2>Enemies Available to Attack</h2></span>
+	<h3>Fight Section</h3>
+	<button>Attack</button>
+</div>
+<div class="row">
+	<h2>Defender</h2>
+	<span id="character-enemy"></span>
+</div>
+
+
+<!-- linking jquery -->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+
+
+<!-- linking javascript file -->
+<script type="text/javascript" src="assets/javascript/game.js"></script>	
+
+
 </body>
 </html>

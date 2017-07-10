@@ -1,0 +1,60 @@
+body {
+	background-image: url(../images/background.png)
+}
+
+h4 {
+	text-align: center;
+}
+
+h1, h2, h3 {
+	color: #CCAC00;
+}
+
+img {
+	display: block;
+}
+
+.clear {
+	clear: both;
+}
+
+.center {
+	text-align: center;
+}
+
+.row {
+	display: block;
+	height: auto;
+	width: 100%;
+	clear: both;
+}
+
+.character {
+	background-color: white;
+	float: left;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 2px #EE82EE solid;
+}
+
+.character-image {
+	margin: 0px 16px;
+    height: 97px;
+    width: 152px;
+}
+
+.characterEnemy {
+	background-color: red;
+	float: left;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 2px #EE82EE solid;
+}
+
+.selCharacter {
+	background-color: blue;
+	float: left;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 2px #EE82EE solid;
+}
