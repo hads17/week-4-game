@@ -51,8 +51,8 @@ img {
     border: 2px #EE82EE solid;
 }
 
-.selCharacter {
-	background-color: blue;
+.selectedCharacter {
+	background-color: white;
 	float: left;
     margin-left: 25px;
     margin-right: 25px;

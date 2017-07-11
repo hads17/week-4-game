@@ -26,19 +26,33 @@ var smeagolStats = {
 	counterAttack: 20,
 };
 
+var selChar = '';
+var selEnem = '';
+
 // function that selects your character and moves your character and enemies to respective sections
 
 $('.character').on('click', function(event){
-	var selChar = $(this).attr("value")
+	selChar = $(this).attr("value");
 	console.log(selChar);
 	$('#character-selected').append($(selChar).clone());
-	console.log('hello');
 	$(selChar).remove();
-	$('#character-enemy').append($('#characterSet').clone());
+	$('#availableEnemy').append($('#characterSet').clone());
 	$('#characterSet').remove();
-	$('.character').addClass('characterEnemy')
-	$(selChar).removeClass('characterEnemy')
+	$('.character').addClass('characterEnemy').removeClass('character')
+	$(selChar).removeClass('characterEnemy').addClass('selectedCharacter')
 });
 
-//Sets selected Character class
+// select defender
+$('.characterEnemy').on('click', function (event){
+	console.log('hello');
+	selEnem = $(this).attr("value");
+	console.log(selEnem);
+	$('#character-enemy').append($(selEnem).clone());
+});
+
+//attack button functionality
+$('#atkBtn').on('click', function(){
+	console.log(selChar)
+});
+
 
