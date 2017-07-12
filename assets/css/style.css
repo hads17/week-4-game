@@ -58,3 +58,10 @@ img {
     margin-right: 25px;
     border: 2px #EE82EE solid;
 }
+
+#youLost {
+	text-align: center;
+	vertical-align: center;
+	color: #CCAC00;
+	font-size: 300px;
+}

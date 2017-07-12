@@ -11,48 +11,59 @@
 
 </head>
 <body>
-<h1>Lord Of The Rings RPG!</h1>
-<div class="row" id="characterSet">
-	<div class="character" id="aragorn" value="#aragorn">
-		<h4>Aragorn</h4>
-		<img class="character-image" src="assets/images/aragorn.jpg" alt="aragorn">
-		<span class="center" id="aragornHp">120</span>
+<div id="container">
+	<h1>Lord Of The Rings RPG!</h1>
+	<div class="row" id="characterSet">
+		<div class="character" id="aragorn" data-value="#aragorn">
+			<h4>Aragorn</h4>
+			<img class="character-image" src="assets/images/aragorn.jpg" alt="aragorn">
+			<span class="center" id="aragornHp">120</span>
+		</div>
+		<div class="character" id="legolas" data-value="#legolas">
+			<h4>Legolas</h4>
+			<img class="character-image" src="assets/images/legolas.jpg" alt="legolas">
+			<span class="center" id="legolasHp">100</span>
+		</div>
+		<div class="character" id="witchKing" data-value="#witchKing">
+			<h4>Witch King</h4>
+			<img class="character-image" src="assets/images/witch_king.jpg" alt="witch king">
+			<span class="center" id="witchKingHp">150</span>
+		</div>
+		<div class="character" id="smeagol" data-value="#smeagol">
+			<h4>Smeagol</h4>
+			<img class="character-image" src="assets/images/smeagol.jpg" alt="smeagol">
+			<span class="center" id="smeagolHp">150</span>
+		</div>
 	</div>
-	<div class="character" id="legolas" value="#legolas">
-		<h4>Legolas</h4>
-		<img class="character-image" src="assets/images/legolas.jpg" alt="legolas">
-		<span class="center" id="legolasHp">100</span>
+	<div class="row">
+		
+
+		<h2>Your Character</h2>
+		<div><span id="character-selected"></span></div>
+		
+		<div><span class="clear"><h2>Enemies Available to Attack</h2></span></div>
+		<span id="availableEnemy"></span>
+		
+		<h3>Fight Section</h3>
+		<button id='atkBtn'>Attack</button>
 	</div>
-	<div class="character" id="witchKing" value="#witchKing">
-		<h4>Witch King</h4>
-		<img class="character-image" src="assets/images/witch_king.jpg" alt="witch king">
-		<span class="center" id="witchKingHp">200</span>
-	</div>
-	<div class="character" id="smeagol" value="#smeagol">
-		<h4>Smeagol</h4>
-		<img class="character-image" src="assets/images/smeagol.jpg" alt="smeagol">
-		<span class="center" id="smeagolHp">150</span>
+
+
+	<div class="row">
+		<h2>Defender</h2>
+		<span id="character-enemy"></span>
 	</div>
 </div>
-<div class="row">
-	
 
-	<h2>Your Character</h2>
-	<span id="character-selected"></span>
-	
-	<span class="clear"><h2>Enemies Available to Attack</h2></span>
-	<span id="availableEnemy"></span>
-	
-	<h3>Fight Section</h3>
-	<button id='atkBtn'>Attack</button>
-</div>
+<br>
+<br>
 
+<button id='restart'>Restart</button>
 
-<div class="row">
-	<h2>Defender</h2>
-	<span id="character-enemy"></span>
-</div>
+<br>
+<br>
 
+<h1 id="announcement"></h1>
 
 <!-- linking jquery -->
 <script

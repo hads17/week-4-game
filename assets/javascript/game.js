@@ -1,58 +1,132 @@
-var aragornStats = {
-	hp: 120,
-	attack: 8,
-	attackIncriment: 8,
-	counterAttack: 10,
-};
+var characters = [
+			{
+			name: 'Aragorn',
+			hp: 120,
+			attack: 8,
+			attackIncriment: 8,
+			counterAttack: 9,
+			id: "#aragorn",
+			hpId: "#aragornHp",
+			},
 
-var legolasStats = {
-	hp: 100,
-	attack: 20,
-	attackIncriment: 10,
-	counterAttack: 5,
-};
+			{
+			name: 'legolas',
+			hp: 100,
+			attack: 20,
+			attackIncriment: 10,
+			counterAttack: 5,
+			id: "#legolas",
+			hpId: "#legolasHp",
+			},
 
-var witchKingStats = {
-	hp: 200,
-	attack: 5,
-	attackIncriment: 6,
-	counterAttack: 25,
-};
+			{
+			name: 'witchKing',
+			hp: 150,
+			attack: 5,
+			attackIncriment: 6,
+			counterAttack: 12,
+			id: "#witchKing",
+			hpId: "#witchKingHp",
+			},
 
-var smeagolStats = {
-	hp: 150,
-	attack: 15,
-	attackIncriment: 7,
-	counterAttack: 20,
-};
+			{
+			name: 'smeagol',
+			hp: 150,
+			attack: 12,
+			attackIncriment: 7,
+			counterAttack: 9,
+			id: "#smeagol",
+			hpId: "#smeagolHp",
+		}
+	]
 
-var selChar = '';
-var selEnem = '';
+
+var selChar;
+var selCharHp;
+var selEnem;
+var selEnemHp;
+var enemiesAlive = 3;
+
+
+
+
+
+
+$(document).ready(function(){
 
 // function that selects your character and moves your character and enemies to respective sections
+	$('.character').on('click', function(event){
+		for (var i=0; i < characters.length; i++) {
+			if (characters[i].id === $(this).attr('data-value')){
+				selChar = characters[i];
+				selCharHp = characters[i].hp;
+			}
+		}
+		console.log("you have selected " + selChar.name + " as your character");
+		$('#character-selected').append($(selChar.id).clone())
+		$(selChar.id).remove();
+		$('#availableEnemy').append($('#characterSet').clone());
+		$('#characterSet').empty();
+		$('.character').addClass('characterEnemy').removeClass('character')
+		$(selChar.id).addClass('selectedCharacter').removeClass('characterEnemy')
+	});
 
-$('.character').on('click', function(event){
-	selChar = $(this).attr("value");
-	console.log(selChar);
-	$('#character-selected').append($(selChar).clone());
-	$(selChar).remove();
-	$('#availableEnemy').append($('#characterSet').clone());
-	$('#characterSet').remove();
-	$('.character').addClass('characterEnemy').removeClass('character')
-	$(selChar).removeClass('characterEnemy').addClass('selectedCharacter')
+	// select defender
+	$('body').on('click', '.characterEnemy', function (event){
+
+		if($('#character-enemy').is(':empty')){
+			// selEnem = $(this).attr("value");
+			for (var i = 0; i < characters.length; i++) {
+			if (characters[i].id === $(this).attr('data-value')){
+				selEnem = characters[i];
+				selEnemHp = characters[i].hp;
+			};
+			
+		};
+			console.log('you have chosen ' + selEnem.name + ' as your enemy');
+			$('#character-enemy').append($(selEnem.id).clone());
+			$(selEnem.id).remove();
+			$(selEnem.id).addClass('selectedDefender')
+		};
+	});
+
+	//attack button functionality
+	$('#atkBtn').on('click', function(){
+			attack();
+			counterAttack();
+		if (selChar.hp <= 0) {
+			lost()
+		}else if(enemiesAlive === 0){
+			$('#announcement').html('You Won!')
+			$('#atkBtn').hide();
+		}else if(selEnem.hp <= 0) {
+			$('#character-enemy').empty();
+			enemiesAlive--;
+		}
+		});
+
+	//Restart function
+	$('#restart').click(function(){
+		location.reload();
+	});
 });
 
-// select defender
-$('.characterEnemy').on('click', function (event){
-	console.log('hello');
-	selEnem = $(this).attr("value");
-	console.log(selEnem);
-	$('#character-enemy').append($(selEnem).clone());
-});
+	//attack math
+	var attack = function(){
+		selEnem.hp = selEnem.hp - selChar.attack;
+		selChar.attack = selChar.attack + selChar.attackIncriment;
+		$(selEnem.hpId).html(selEnem.hp);
+		console.log(selEnem.hp);
+	};
+	//CounterAttack Math
+	var counterAttack = function(){
+		selChar.hp = selChar.hp - selEnem.counterAttack;
+		$(selChar.hpId).html(selChar.hp);
+		console.log(selChar.hp);
+	};
 
-//attack button functionality
-$('#atkBtn').on('click', function(){
-	console.log(selChar)
-});
-
-
+	var lost = function(){
+		$('#announcement').html("You Lost!");
+		$('#atkBtn').hide();
+		
+	}
