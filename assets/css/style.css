@@ -1,5 +1,5 @@
 body {
-	background-image: url(../images/background.png)
+	background-image: url(../images/background.jpg)
 }
 
 h4 {
@@ -52,7 +52,7 @@ img {
 }
 
 .selectedCharacter {
-	background-color: white;
+	background-color: green;
 	float: left;
     margin-left: 25px;
     margin-right: 25px;
@@ -64,4 +64,12 @@ img {
 	vertical-align: center;
 	color: #CCAC00;
 	font-size: 300px;
+}
+
+.selectedDefender {
+	background-color: brown;
+	float: left;
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 2px #EE82EE solid;
 }

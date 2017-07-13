@@ -3,8 +3,8 @@ var characters = [
 			name: 'Aragorn',
 			hp: 120,
 			attack: 8,
-			attackIncriment: 8,
-			counterAttack: 9,
+			attackIncriment: 18,
+			counterAttack: 5,
 			id: "#aragorn",
 			hpId: "#aragornHp",
 			},
@@ -13,8 +13,8 @@ var characters = [
 			name: 'legolas',
 			hp: 100,
 			attack: 20,
-			attackIncriment: 10,
-			counterAttack: 5,
+			attackIncriment: 13,
+			counterAttack: 10,
 			id: "#legolas",
 			hpId: "#legolasHp",
 			},
@@ -24,17 +24,17 @@ var characters = [
 			hp: 150,
 			attack: 5,
 			attackIncriment: 6,
-			counterAttack: 12,
+			counterAttack: 15,
 			id: "#witchKing",
 			hpId: "#witchKingHp",
 			},
 
 			{
 			name: 'smeagol',
-			hp: 150,
-			attack: 12,
-			attackIncriment: 7,
-			counterAttack: 9,
+			hp: 180,
+			attack: 2,
+			attackIncriment: 4,
+			counterAttack: 20,
 			id: "#smeagol",
 			hpId: "#smeagolHp",
 		}
@@ -92,17 +92,21 @@ $(document).ready(function(){
 
 	//attack button functionality
 	$('#atkBtn').on('click', function(){
+		if ($('#character-enemy').is(':empty')){
+
+		} else {
 			attack();
 			counterAttack();
-		if (selChar.hp <= 0) {
-			lost()
-		}else if(enemiesAlive === 0){
-			$('#announcement').html('You Won!')
-			$('#atkBtn').hide();
-		}else if(selEnem.hp <= 0) {
-			$('#character-enemy').empty();
-			enemiesAlive--;
-		}
+			$('#fightLog1').html(selChar.name + " Has attacked " + selEnem.name + " for " + selChar.attack + " damage!")
+			$('#fightLog2').html(selEnem.name + " Has Counter-attacked " + selChar.name + " for " + selEnem.counterAttack + " damage!")
+			if (selChar.hp <= 0) {
+				lost()
+			} else if(selEnem.hp <= 0) {
+				$('#character-enemy').empty();
+				enemiesAlive--;
+				win()
+			}
+			}
 		});
 
 	//Restart function
@@ -130,3 +134,10 @@ $(document).ready(function(){
 		$('#atkBtn').hide();
 		
 	}
+
+	var win = function(){
+		if (enemiesAlive === 0){
+			$('#announcement').html("You win!");
+			$('#atkBtn').hide();
+		}
+	};
