@@ -111,7 +111,7 @@ $(document).ready(function(){
 
 	//Restart function
 	$('#restart').click(function(){
-		location.reload();
+			location.reload();
 	});
 });
 
